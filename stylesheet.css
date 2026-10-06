@@ -200,6 +200,23 @@
         margin-top: var(--spacing-md);
     }
 
+    .project-jump-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-md);
+    }
+
+    .project-jump-nav p {
+        flex-basis: 100%;
+        font-weight: bold;
+    }
+
+    .project-jump-nav a {
+        text-decoration: underline;
+        text-underline-offset: 0.2em;
+    }
+
     .contact-form {
         width: 100%;
         max-width: var(--content-max);
