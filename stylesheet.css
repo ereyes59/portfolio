@@ -379,6 +379,58 @@
         line-height: 1.5;
     }
 
+/* Project jump nav */
+    .project-jump-nav {
+        margin-top: var(--spacing-lg);
+    }
+
+    .project-jump-nav > p {
+        margin-bottom: var(--spacing-sm);
+        font-weight: 600;
+    }
+
+    .project-jump-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--spacing-sm);
+    }
+
+    .project-jump-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        padding: 12px 20px;
+
+        background-color: var(--color-background);
+        color: var(--color-text);
+
+        border: 3px solid var(--color-border);
+        border-radius: var(--border-radius);
+
+        font-weight: 600;
+        text-decoration: none;
+
+        cursor: pointer;
+
+        transition:
+            background-color 0.2s ease,
+            color 0.2s ease,
+            transform 0.2s ease;
+    }
+
+    .project-jump-button:hover {
+        background-color: var(--color-primary);
+        color: var(--color-text);
+        border-color: var(--color-secondary);
+        transform: translateY(-2px);
+    }
+
+    .project-jump-button:focus-visible {
+        outline: 3px solid var(--color-text);
+        outline-offset: 3px;
+    }
+
 /* Contact form */
     .contact-form {
         padding: var(--spacing-lg);
