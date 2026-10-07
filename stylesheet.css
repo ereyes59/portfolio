@@ -200,23 +200,6 @@
         margin-top: var(--spacing-md);
     }
 
-    .project-jump-nav {
-        display: flex;
-        flex-wrap: wrap;
-        gap: var(--spacing-sm);
-        margin-top: var(--spacing-md);
-    }
-
-    .project-jump-nav p {
-        flex-basis: 100%;
-        font-weight: bold;
-    }
-
-    .project-jump-nav a {
-        text-decoration: underline;
-        text-underline-offset: 0.2em;
-    }
-
     .contact-form {
         width: 100%;
         max-width: var(--content-max);
@@ -406,7 +389,7 @@
         color: var(--color-text);
 
         border: 3px solid var(--color-border);
-        border-radius: var(--border-radius);
+        border-radius: var(--border-radius-md);
 
         font-weight: 600;
         text-decoration: none;
@@ -617,170 +600,5 @@
     main > .container:first-child .intro {
         box-shadow: none;
     }
-
 }
 }
-
-
-
-
-
-/* REFACTORING EVIDENCE 
-
-Before: There was repeated spacing and color values that were going to be used in the style sheet
-After: Custom properties were created in the :root selector to store the values for spacing and color, which were then used throughout the style sheet to maintain consistency and make future changes easier.
-
-Before: Component styles could require more specific selectors to override global styles, leading to increased specificity and potential conflicts.
-After: Cascade layer and simple class selectors were used to reduce specificity and make it easier to override styles when necessary.
-
-Before: Card values were mixed with global values, making it difficult to maintain consistency and update styles.
-After: Component specific properties such as card --card-padding and --card-border-radius were scoped inside the .project-card selector to ensure that they only apply to the card component and do not affect other elements on the page.
-*/
-
-
-
-/* ARCHITECTURE NOTES
-
-The style sheet uses cascade layers in the order of reset, base, layout, components, utilities, states, and overrides. This keeps the styles organized and allows for easier maintenance and overrides. Custom properties in :root stores reusable values for colors, spacing, and other design tokens, ensuring consistency across the site. Component-specific properties are scoped to their respective selectors to avoid conflicts and maintain modularity. Media queries are used for print styles to ensure a clean output when printing the page. Browser checks were performed at different screen sizes to ensure responsiveness and accessibility so far. The index.html used is from a previous assignment to simply to test the styles and ensure that they are working as expected. Hover, keyboard focus, and disabled states were also tested as well as a print check to ensure that the styles were applied correctly. 
-
-
-
-/* Image Inventory 
-
-Image Number (File Name): Purpose | Source | License/Permission | Original Format | Current Format | Current Dimensions | Expected Display Size
-
-Image 1 (vanguard-home.png): Showcase the Vanguard website and homepage design | Original Work created by me for coursework | Original work | PNG | PNG | 1598 x 1257 px | 800 x 629 px
-Image 2 (vanguard-content.png): Showcase additional content and layout of the site | Original work created by me for coursework | Original work | PNG | PNG | 1596 x 1257px | 800 x 630px 
-Image 3 (field-and-feast-home.png): Showcase the Field and Feast and homepage layout | Original work created by me for coursework | Original Work | PNG | PNG | 872 × 1122 px | 800 × 1029 px
-Image 4 (field-and-feast-gallery.png): Showcase the gallery and visual presentation of the site | Original work created by me for coursework | Original Work | PNG | PNG | 873 × 1263 px | 800 × 1158 px
-Image 5 (path-to-success-home.png): Showcase the Path to Success website and homepage design | Original work created by me for coursework | Original Work | PNG | PNG | 486 × 1264 px | 486 × 1264 px
-Image 6 (path-to-success-content.png): Showcase additional content and page design | Original work created by me for coursework | Original Work | PNG | PNG | 483 × 1259 px | 483 × 1259 px
-Image 7 (mash-up-poster_mockup.png): Showcase the mashup poster in a realistic mockup presentation | Original work created by me for coursework | Original Work. Third-party characters/branding used as part of coursework | PNG | PNG | 4000 × 3000 px | 800 × 600 px
-
-
-
-/* Alt Text Plan 
-
-Image Number (File Name): Image type | Alt text Draft/alt treatment
-
-Image 1 (vanguard-home.png): Informative | "Screenshot of the Vanguard website homepage showing the Vanguard logo, navigation menu, hero section, and blue and red visual design."
-Image 2 (vanguard-content.png): Informative | "Screenshot of the Vanguard website showing the services and results sections with structured text, statistics, and a results table."
-Image 3 (field-and-feast-home.png): Informative | "Screenshot of the Field and Feast homepage featuring the brand logo, the navigation, and a food-focused visual design."
-Image 4 (field-and-feast-gallery.png): Informative | "Screenshot of the Field and Feast Gallery page showing a collection of food and event photography presented within the website design."
-Image 5 (path-to-success-home.png): Informative | "Screenshot of the Path to Success homepage showing the website navigation, colorful branding, and introductory content."
-Image 6 (path-to-success-content.png): Informative | "Screenshot of the Path to Success website showing additional content, text sections, and colorful visual elements."
-Image 7 (mash-up-poster_mockup.png): Complex | "Mockup of a graphic design poster combining Batman and The Devil Wears Prada themes with a dark background, large white typography, and gold accents combine the themes from both movies into single composition."
-
-
-
-/* Media
-
-No audio, video, animation, or embedded media currently planned. The main media assets will be screenshots of projects I have completed, which will be presented as static images. Captions will be provided where additional context may be needed. ALt text will be provided for accessibility as well. 
-
-
-
-/* Typography
-
-Font | Source | License | Fallback | Weights/Styles Used | Loading Strategy
-
-Helvetica Neue | System Font | No font web license needed | Arial, sans-serif | Regular, bold, default body text | No external font file needs to load
-Georgia | System Font | No font web license needed | Serif | Regular, bold, default heading text | No external font file needs to load
-
-
-
-/* Optimization Risk
-
-Asset 1 (mash-up-poster_mockup.png): Performance risk because the image is large at approximately 21 MB, making it larger than the other portfolio images causing the page to potentially load slower. To optimize this, resize the image to an appropriate display size and convert it to a more optimized format such as WebP or screenshot the mockup similar to the other projects and resize accordingly.
-
-Asset 2 (vanguard-home.png): Performance risk because this image and other similar image sizes are approximately at nearly 2 MB. It may take longer to load for those on slower connection speeds. To optimize this, compress and resize the image while maintaining the resolution to ensure no quality is lost.
-
-Asset 3 (field-and-feast-gallery.png): Performance/layout risk because the image is around 1.07 MB, and is more of a narrow image as it is displaying the site when using a narrow display. It could affect loading and page performance. To optimize this, compress the image and use responsive sizing so it display appropriately across different screen sizes.
-
-
-
-/* Evidence Plan
-
-For file size, I will check the file size of each image before adding it to the final website. Larger files will be compressed or converted to a more efficient format.
-For dimensions, I will check the pixel dimensions of each image and compare them to the expected display size to make sure images are being displayed properly.
-For responsive behavior, I will test my portfolio at different screen sizes including a narrow, medium, and large size to make sure images and layouts resize correctly and as intended without causing any overflow or horizontal scrolling.
-For loading, I will use the browser's developer tools and Lighthouse to check image loading and page performance. 
-For accessibility, I will check that the informative images have useful alt text, and test the navigation with a keyboard and use an accessibility checker such as Lighthouse to identify any accessibility issues.
-
-
-/* Created  9/20/26 
-/* 1. ASSET INVENTORY
-
-Asset | Type | Source
-
-1. vanguard-home.png | Project Screenshot | Original coursework
-2,vanguard-content.png | Project screenshot	| Original coursework	
-3.field-and-feast-home.png | Project screenshot	| Original coursework	
-4.field-and-feast-gallery.png | Project screenshot | Original coursework	
-5.path-to-success-home.png | Project screenshot | Original coursework
-6.path-to-success-content.png | Project screenshot | Original coursework	
-7.mash-up-poster__mockup.png | Design mockup | Original coursework using third-party Batman and The Devil Wears Prada imagery/branding	
-
-/* 2. RESPONSIVE IMAGES
-
-The screenshots are way larger than the space they are expected to occupy on the page. Keeping them at the original sizes would cause unnecessary loading time. 
-I will optimize the images by resizing them to a more suitable display size and converting larger PNG files to WebP where needed. Most of the png screenshots can be resized to around 800px wide because the portfolio layout uses a 1200px max container and the images do not need to display at their original size.
-The mashup poster mockup is the biggest performance concern. The original dimensions and file size are really large, so reduction it to around 800px wide and using a compressed WebP version will help improve the performance of the page.
-If the final portfolio displays the images at different sizes across screen widths, the srcset and sizes can be used to provide appropriately sized versions.
-
-/* 3. ART DIRECTION
-
-The portfolio images are all screenshots of completed work of websites and graphic design projects I have done, so the full composition is important to understand the work. I don not plan to crop the images differently for mobile and desktop because doing so would remove important parts of the project. The same composition can be used across responsive layouts while allowing the image itself to scale down to fit the available space. The portfolio wil use a responsive image width like max-width: 100% to prevent any type of overflow.  
-
-/* 4. Alt Text and Alternatives
-
-The portfolio images are all informative because they show examples of my previous work. Each screenshot will have alt text that describes what is shown as well. The alt text plan is listed above as well.
-
-/* 5. SVG/MEDIA/EMBED ACCESSIBILITY 
-
-My portfolio does not require any type of embedded media. The media assets used in my portfolio mainly consists of static screenshots of my previous projects. As for image accessibility, project titles, descriptions, and any other information would be provided through actual HTML code.
-
-/* 6. TYPOGRAPHY SYSTEM
-
-The portfolio uses Helvetica Neue for the body text and Georgia
-for the headings. The base font size is 16px, and the headings
-use larger font sizes to create a clear hierarchy. Paragraphs
-also have a max width of 65ch so the lines do not get too long
-on larger screens. The line height helps keep the text easier
-to read.
-
-/* 7. FONT LOADING
-
-The portfolio uses system fonts instead of loading custom web
-fonts. Helvetica Neue uses Arial as a fallback, and Georgia uses
-a serif fallback if it is not available. Since the fonts are
-already available as system fonts, there are no external font
-files that need to load.
-
-/* 8. LAYOUT STABILITY
-
-The images use max-width: 100% and height: auto so they can
-resize with the page without going outside of their containers.
-The image width and height will also be included in the HTML
-when the images are added. This will help the browser know how
-much space to reserve for the images and help prevent the layout
-from moving while the images load.
-
-/* 9. TESTING EVIDENCE
-
-I tested the portfolio at narrow, medium, and large screen sizes
-to make sure the layout responds correctly. I also tested the
-page at 200% zoom to make sure the content stays readable and
-usable.
-
-I checked the image dimensions and file sizes and made sure the
-images stay within their containers without causing horizontal
-scrolling. I also checked the alt text for the portfolio images
-and made sure the images have useful descriptions.
-
-I used browser developer tools and Lighthouse to check the
-portfolio's performance and accessibility. The portfolio was
-also checked on different screen sizes to make sure the layout
-and images work properly. After testing, everything is working
-as expected.
-
-*/
