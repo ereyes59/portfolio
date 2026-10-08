@@ -1,5 +1,0 @@
-Module 6 Practice (9/28/2026):
-
-As of 9/28/2026, the index.html was checked and tested through W3C Nu HTML checker and no errors were reported. The other pages will also be checked with the same tool as well before publishing the final site.
-I did not add JSON-LD because this home page is a general portfolio overview, and I do not have a specific structured data type to support with its visible content.
-Open graphs tags can help provide a title, description, and image when the page is shared through a link, but they do not guarantee that every platform will show the exact preview as expected nor that the page will be ranked higher in searches either.
