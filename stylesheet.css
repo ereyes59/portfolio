@@ -307,7 +307,7 @@
 
     .eyebrow,
     .intro > p:first-child {
-        color: var(--color-secondary);
+        color: var(--color-secondary-dark);
         font-size: var(--font-size-sm);
         font-weight: 700;
         letter-spacing: 0.08em;
@@ -404,7 +404,7 @@
 
     .project-jump-button:hover {
         background-color: var(--color-primary);
-        color: var(--color-text);
+        color: var(--color-strong);
         border-color: var(--color-secondary);
         transform: translateY(-2px);
     }
